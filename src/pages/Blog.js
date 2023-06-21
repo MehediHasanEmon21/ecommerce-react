@@ -7,8 +7,8 @@ const Blog = () => {
   return (
     <>
     <Banner cssId="blog-page-banner" cssClass="">
-        <h2>#Readmore</h2>
-        <p>Read All Cases studies about product from Blog</p>
+        <h2 style={{color: '#ffffff'}}>#Blogs</h2>
+        <p style={{color: '#ffffff'}}>Read All Products Details Here</p>
     </Banner>
       
     <Blogs/>

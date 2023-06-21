@@ -10,7 +10,7 @@ const Contact = () => {
   
     <Banner cssId="page-banner" cssClass="about-banner">
         <h2>#Let's Talk</h2>
-        <p>Leave a message! We love to hear from you.</p>
+        <p style={{color: '#ffffff'}}>Leave a message! We love to hear from you.</p>
     </Banner>
 
     <Address/>

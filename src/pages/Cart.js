@@ -9,7 +9,7 @@ const Cart = () => {
 
     <Banner cssId="page-banner" cssClass="about-banner">
         <h2>#Cart</h2>
-        <p>Your Cart products are here.</p>
+        <p style={{color: '#ffffff'}}>Your Cart products are here.</p>
     </Banner>
 
     <CartProducts/>

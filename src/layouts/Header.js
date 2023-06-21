@@ -16,14 +16,14 @@ const Header = () => {
                 <li><NavLink to="/contact">Conatct</NavLink></li>
                 <li id="lg-bag">
                   <Link to="/cart"><i className="far fa-shopping-bag bag"></i></Link>
-                  <span className="badge">1</span>
+                  {/* <span className="badge">1</span> */}
                   </li>
                 <a onClick={() => setIsNavOpen(false) }><i id="close" className="far fa-times"></i></a>
             </ul>
         </div>
         <div id="mobile">
             <Link to="/cart"><i className="far fa-shopping-bag"></i></Link>
-            <span className="badge">1</span>
+            {/* <span className="badge">1</span> */}
             <i id="bar" onClick={() => setIsNavOpen(true) } className="far fa-outdent"></i>
         </div>
     </section>

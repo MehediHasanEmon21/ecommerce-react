@@ -636,6 +636,10 @@ footer .copyright  {
     align-items: center;
 }
 
+/* #blog-page-banner h2, p {
+    color: #ffffff;
+} */
+
 #blogs .blog{
     display: flex;
     justify-content: space-between;
