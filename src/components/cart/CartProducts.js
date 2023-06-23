@@ -1,58 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { getCart } from '../../features/product/ProductSlice';
+import useCart from '../../hooks/useCart';
 
 const CartProducts = () => {
-  const [carts, setCarts] = useState([]);
-  const [renderInput, setRenderInput] = useState(false);
-  const [quantity, setQuantity] = useState(1);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    const fetchCarts = JSON.parse(localStorage.getItem('shopping-carts'));
-    setCarts(fetchCarts);
-  },[])
-
-  const removeCart = (id) => {
-    const storedCart = localStorage.getItem('shopping-carts');
-
-    if(storedCart){
-        let shoppingCart = JSON.parse(storedCart);
-        shoppingCart = shoppingCart.filter(pro => pro.id != id);
-        localStorage.setItem('shopping-carts', JSON.stringify(shoppingCart));
-        setCarts(shoppingCart);
-    }
-    dispatch(getCart())
+  
+  const { removeCart, carts, renderInput, quantity, updateCartQty, handleArrow } = useCart();
+  
+  
+  const handleRemoveCart = (id) => {
+      removeCart(id);
   }
+
   const handleQty = (event, id) => {
-
-    setRenderInput(true);
-    const newQty = event.target.value;
-    setQuantity(newQty)
-    const storedCart = localStorage.getItem('shopping-carts');
-    if(storedCart){
-
-        let shoppingCart = JSON.parse(storedCart);
-        let findProduct = shoppingCart.find(pro => pro.id == id);
-        findProduct.qty = newQty;
-        localStorage.setItem('shopping-carts', JSON.stringify(shoppingCart));
-        setCarts(shoppingCart);
-
-    }
-
-    dispatch(getCart())
-
+    updateCartQty(event, id);
   }
 
   const handleKeyDown = (event) => {
-
-    if (event.key === 'ArrowUp') {
-      event.preventDefault();
-      setQuantity((prevNumber) => prevNumber + 1);
-    } else if (event.key === 'ArrowDown') {
-      event.preventDefault();
-      setQuantity((prevNumber) => prevNumber - 1);
-    }
-    
+    handleArrow(event);
   };
 
   
@@ -75,13 +37,13 @@ const CartProducts = () => {
                         const {id, name, image, price, qty } = cart;
 
                         return <tr key={cart.id}>
-                                <td><a onClick={ () => removeCart(id) }><i className="far fa-times-circle cancel"></i></a></td>
+                                <td><a onClick={ () => handleRemoveCart(id) }><i className="far fa-times-circle cancel"></i></a></td>
                                 <td><img src={"assets/img/products/" + image} alt=""/></td>
                                 <td>{name}</td>
                                 <td>${price}</td>
                                 <td><input min={1} onKeyDown={handleKeyDown} onChange={(event) => handleQty(event, id)}  type="number" value={renderInput ? quantity: qty}/></td>
                                 <td>${qty * price}</td>
-                            </tr>
+                              </tr>
 
                     })
                 }   

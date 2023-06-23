@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="section-p1">
         <div className="col">
-            <img src="assets/img/logo.png" alt=""/>
+            <img src="/assets/img/logo.png" alt=""/>
             <h5>Contact</h5>
             <p><span>Address:</span> Lorem ipsum dolor sit amet.</p>
             <p><span>Phone:</span> 01766666776, +99099888778</p>
@@ -44,11 +44,11 @@ const Footer = () => {
             <h5>Install</h5>
             <p>From oogle play and App Store</p>
             <div className="store-logo">
-                <img src="assets/img/pay/app.jpg" alt=""/>
-                <img src="assets/img/pay/play.jpg" alt=""/>
+                <img src="/assets/img/pay/app.jpg" alt=""/>
+                <img src="/assets/img/pay/play.jpg" alt=""/>
             </div>
             <p>Secured Payment Gateways</p>
-            <img src="assets/img/pay/pay.png" alt=""/>
+            <img src="/assets/img/pay/pay.png" alt=""/>
         </div>
         <div className="copyright">
             <p>©2023 - Developed By Emon</p>

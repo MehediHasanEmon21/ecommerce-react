@@ -9,6 +9,9 @@ import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import Cart from './pages/Cart';
+import Single from './pages/Single';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -23,9 +26,11 @@ function App() {
         <Route path='/contact' element={<Contact/>}></Route>
         <Route path='/about-us' element={<About/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
+        <Route path='/product/:id' element={<Single/>}></Route>
       </Routes>
       
       <Footer/>
+      <ToastContainer />
     </BrowserRouter>
    
   );
