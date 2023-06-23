@@ -12,6 +12,7 @@ import Cart from './pages/Cart';
 import Single from './pages/Single';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path='/about-us' element={<About/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
         <Route path='/product/:id' element={<Single/>}></Route>
+        <Route path='*' element={<NotFound />}/>
       </Routes>
       
       <Footer/>
