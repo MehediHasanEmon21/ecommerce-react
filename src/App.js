@@ -13,11 +13,15 @@ import Single from './pages/Single';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NotFound from './pages/NotFound';
+import { ScrollToTop } from 'react-router-scroll-to-top';
+import Checkout from './pages/Checkout';
+import OrderSuccess from './pages/OrderSuccess';
 
 function App() {
   return (
     
     <BrowserRouter>
+    <ScrollToTop />
       <Header/>
 
       <Routes>
@@ -28,6 +32,8 @@ function App() {
         <Route path='/about-us' element={<About/>}></Route>
         <Route path='/cart' element={<Cart/>}></Route>
         <Route path='/product/:id' element={<Single/>}></Route>
+        <Route path='/checkout' element={<Checkout/>}></Route>
+        <Route path='/order-success' element={<OrderSuccess/>}></Route>
         <Route path='*' element={<NotFound />}/>
       </Routes>
       

@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
         <div className="col">
             <h5>Install</h5>
-            <p>From oogle play and App Store</p>
+            <p>From Google play and App Store</p>
             <div className="store-logo">
                 <img src="/assets/img/pay/app.jpg" alt=""/>
                 <img src="/assets/img/pay/play.jpg" alt=""/>

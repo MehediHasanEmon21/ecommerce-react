@@ -7,7 +7,6 @@ import { getCart } from "../features/product/ProductSlice";
 const useCart = () => {
     
     const [carts, setCarts] = useState([]);
-    const [renderInput, setRenderInput] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
 
@@ -16,12 +15,13 @@ const useCart = () => {
         setCarts(fetchCarts);
       },[])
 
-    const addCart = (product) => {
-
+    const addCart = (product, qty = 1) => {
+        
         let tempProduct = { ...product };
         let shoppingCart = [];
         let newCart;
-    
+        let quantity = qty > 1 ? qty : 1;
+
         const storedCart = localStorage.getItem('shopping-carts');
     
         if (storedCart) {
@@ -32,12 +32,12 @@ const useCart = () => {
     
         if (isProductAddedCart) {
     
-          isProductAddedCart.qty = isProductAddedCart.qty + 1;
+          isProductAddedCart.qty = parseInt(isProductAddedCart.qty) + parseInt(quantity);
           newCart = [...shoppingCart];
-    
+        
         } else {
 
-          tempProduct.qty = 1;
+          tempProduct.qty = quantity;
           newCart = [...shoppingCart, tempProduct];
     
         }
@@ -64,7 +64,6 @@ const useCart = () => {
 
       const updateCartQty = (event, id) => {
 
-        setRenderInput(true);
         const newQty = event.target.value;
         setQuantity(newQty)
         const storedCart = localStorage.getItem('shopping-carts');
@@ -83,19 +82,8 @@ const useCart = () => {
 
       }
 
-      const handleArrow = (event) => {
 
-         if (event.key === 'ArrowUp') {
-            event.preventDefault();
-            setQuantity((prevNumber) => prevNumber + 1);
-          } else if (event.key === 'ArrowDown') {
-            event.preventDefault();
-            setQuantity((prevNumber) => prevNumber - 1);
-          }
-
-      }
-
-      return { addCart,  removeCart, updateCartQty, handleArrow, carts, setCarts, renderInput, setRenderInput, quantity, setQuantity };
+      return { addCart,  removeCart, updateCartQty, carts, setCarts, quantity, setQuantity };
 
 }
 

@@ -6,6 +6,7 @@ import Products from '../components/products/Products';
 
 
 const Single = () => {
+  
   const navigate = useNavigate();
   const [img, setImg] = useState(false);
   const [attr, setAttr] = useState('');
@@ -23,10 +24,8 @@ const Single = () => {
   }
 
   const handleAddToCart = (product) => {
-    addCart(product);
-    navigate('/cart', {
-        state : "single"
-    });
+    addCart(product, quantity);
+    navigate('/cart');
   }
 
   const handleQtyChange = (event) => {
@@ -68,7 +67,7 @@ const Single = () => {
                     <option value="">XXL</option>            
                 </select>
             </div>
-            <input className="qty" type="text" value={quantity} onChange={handleQtyChange}/>
+            <input className="qty" min={1} type="number" value={quantity} onChange={handleQtyChange}/>
             <button className="normal add-cart" onClick={() => {handleAddToCart({...product, qty: quantity})}}>Add To Cart</button>
             <h4>Product Details</h4>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti sequi ea, molestias ad magnam earum rerum quam quia doloremque consequatur inventore sapiente repellendus facere libero non delectus possimus molestiae deleniti soluta veritatis cumque dicta! Totam fugit, nulla neque doloremque, enim tempore eius natus debitis, quia repellendus iusto provident sint facilis?</p>

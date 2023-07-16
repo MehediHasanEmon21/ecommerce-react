@@ -1,16 +1,21 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCart } from '../../features/product/ProductSlice';
-import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 
 const CartAdd = () => {
 
   const carts = useSelector(state => state.product.cart);
   const dispatch = useDispatch()
+  const navigate = useNavigate();
   
   const handleCoupon = () => {
-    toast("Sorry! Coupon Not set yet");
+    alert("Sorry! Coupon Not set yet");
+  }
+
+  const handleCheckout = () => {
+    navigate('/checkout');
   }
 
   useEffect(() => {
@@ -44,7 +49,10 @@ const CartAdd = () => {
                     </tr>
                 </tbody>
             </table>
-            <button className="normal">Proceed To Checkout</button>
+            {
+              (carts.length > 0) && <button onClick={() => handleCheckout()} className="normal">Proceed To Checkout</button>
+            }
+            
         </div>
     </section>
   )

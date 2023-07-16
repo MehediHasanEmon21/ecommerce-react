@@ -813,7 +813,7 @@ footer .copyright  {
     line-height: 25px;
 }
 
-#form-details form input, #form-details form textarea{
+#form-details form input, #form-details form textarea, #form-details form select{
     width: 100%;
     padding: 15px 20px;
     outline: none;
@@ -821,7 +821,13 @@ footer .copyright  {
     border: 1px solid #e1e1e1;
     border-radius: 5px;
 }
-
+.form-checkout {
+    justify-content: center !important;
+}
+.checkout-input{
+    width: 45px;
+    height: 33px
+}
 /* Cart Page */
 
 #cart{
@@ -951,6 +957,25 @@ footer .copyright  {
         background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
         height: 400px;
         background-position: center;
+        
+    }
+
+    .four_zero_four_bg_cart{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ61gz9bfD__Erhd2-bvZnN-JTBn0BhB-aWVg&usqp=CAU);
+        height: 400px;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+    }
+
+    .four_zero_four_bg_success{
+        background-image: url(https://bsscommerce.com/blog/wp-content/uploads/2020/08/order-suceess-02.jpg);
+        height: 400px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 300px;
+        margin-bottom: 35px;
         
     }
         
